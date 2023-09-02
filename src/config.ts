@@ -21,11 +21,16 @@ export interface Config {
 
 // If config.toml does not exist, copy config.default.toml
 if (!existsSync(getWorkdirPath('config.toml'))) {
-  copyFileSync(getWorkdirPath('config.default.toml'), getWorkdirPath('config.toml'));
+  copyFileSync(
+    getWorkdirPath('config.default.toml'),
+    getWorkdirPath('config.toml'),
+  );
 }
 
 /** Configuration */
-export const config: Config = parse(readFileSync(getWorkdirPath('config.toml'), 'utf-8')) as Config;
+export const config: Config = parse(
+  readFileSync(getWorkdirPath('config.toml'), 'utf-8'),
+) as Config;
 
 // Check the types
 assert(
