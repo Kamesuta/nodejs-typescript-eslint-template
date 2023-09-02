@@ -4,31 +4,31 @@ import { getWorkdirPath } from './workdir.js';
 import { copyFileSync, existsSync, readFileSync } from 'fs';
 
 /**
- * 設定ファイルの構造
+ * Structure of the configuration file
  */
 export interface Config {
   /*
-   * コンフィグ名はスネークケースで書く。そのためeslintの命名規則を無効化しています。
-   * ルール設定の requiresQuotes はクォートで囲む必要のある文字列(スペースなどを含むもの)のみ除外の対象になるため、ここでは eslint-disable が必要です。
+   * Configuration names should be written in snake_case. Therefore, we are disabling eslint naming rules here.
+   * The 'requiresQuotes' rule is disabled here because it only excludes strings (including those with spaces) that need to be enclosed in quotes.
    */
   /* eslint-disable @typescript-eslint/naming-convention */
 
-  /** Example of string setting */
+  /** Example of a string setting */
   some_text_setting: string;
 
   /* eslint-enable @typescript-eslint/naming-convention */
 }
 
-// config.tomlが存在しない場合はconfig.default.tomlをコピーする
+// If config.toml does not exist, copy config.default.toml
 if (!existsSync(getWorkdirPath('config.toml'))) {
   copyFileSync(getWorkdirPath('config.default.toml'), getWorkdirPath('config.toml'));
 }
 
-/** 設定 */
+/** Configuration */
 export const config: Config = parse(readFileSync(getWorkdirPath('config.toml'), 'utf-8')) as Config;
 
-// 型をチェック
+// Check the types
 assert(
   config.some_text_setting && typeof config.some_text_setting === 'string',
-  'some_text_settingは必須です。',
+  'some_text_setting is required.',
 );

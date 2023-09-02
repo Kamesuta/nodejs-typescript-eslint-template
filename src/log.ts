@@ -1,7 +1,7 @@
 import log4js from 'log4js';
 import { getWorkdirPath } from './workdir.js';
 
-// ログを初期化
+// Initialize the logger
 log4js.configure({
   appenders: {
     file: {
@@ -20,5 +20,5 @@ log4js.configure({
   },
 });
 
-/** ログ出力用のロガー */
+/** Logger for log output */
 export const logger = log4js.getLogger('app');

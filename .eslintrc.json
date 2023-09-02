@@ -42,7 +42,7 @@
       }
     ],
     "spaced-comment": ["warn", "always"],
-    // 命名規則
+    // Naming conventions
     "@typescript-eslint/naming-convention": [
       "error",
       {
@@ -70,7 +70,7 @@
         "format": ["PascalCase"]
       },
       {
-        // クォートで囲まれたプロパティ名は無視
+        // Ignore quoted property names
         "selector": [
           "classProperty",
           "objectLiteralProperty",
@@ -85,7 +85,7 @@
         "modifiers": ["requiresQuotes"]
       }
     ],
-    // JsDocのルール
+    // JsDoc rules
     "jsdoc/check-param-names": [
       "error",
       {
@@ -102,7 +102,7 @@
     "jsdoc/require-returns": "error",
     "jsdoc/require-param-type": "off",
     "jsdoc/require-returns-type": "off",
-    // 公開関数はJsDocによるドキュメンテーション必須
+    // Public functions must have JsDoc documentation
     "jsdoc/require-jsdoc": [
       "error",
       {

@@ -1,6 +1,6 @@
 /**
- * Sleep関数
- * @param msec 待機時間 (ミリ秒)
+ * Sleep function
+ * @param msec Waiting time (in milliseconds)
  * @returns Promise
  */
 export const sleep = (msec: number): Promise<void> =>
