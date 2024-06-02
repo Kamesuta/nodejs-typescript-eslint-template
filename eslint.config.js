@@ -29,8 +29,7 @@ export default [
             parser: tsParser,
             parserOptions: {
                 sourceType: 'module',
-                ecmaVersion: 2022,
-                project: ['./tsconfig.json'],
+                project: ['tsconfig.json'],
             },
         },
         plugins: {
@@ -38,7 +37,6 @@ export default [
             'eslint-plugin-jsdoc': jsdoc,
         },
         rules: {
-            quotes: ['error', 'single'],
             'unicode-bom': ['error', 'never'],
             '@typescript-eslint/explicit-function-return-type': 'warn',
             'no-var': 'off',

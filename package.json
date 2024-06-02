@@ -12,7 +12,7 @@
     "lint": "tsc --noEmit && eslint --cache --fix",
     "prettier": "prettier --write",
     "lint-staged": "lint-staged",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "author": "Kamesuta",
   "license": "MIT",
