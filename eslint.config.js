@@ -1,13 +1,11 @@
 // eslint.config.js
 
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable jsdoc/require-jsdoc */
 /* eslint-disable @typescript-eslint/naming-convention */
 
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
-import tsParser from '@typescript-eslint/parser';
 import jsdoc from 'eslint-plugin-jsdoc';
 import eslint from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
@@ -26,14 +24,14 @@ export default [
                 ...globals.es2021,
                 ...globals.node,
             },
-            parser: tsParser,
+            parser: tseslint.parser,
             parserOptions: {
                 sourceType: 'module',
                 project: ['tsconfig.json'],
             },
         },
         plugins: {
-            '@typescript-eslint/eslint-plugin': tseslint,
+            '@typescript-eslint/eslint-plugin': tseslint.plugin,
             'eslint-plugin-jsdoc': jsdoc,
         },
         rules: {
