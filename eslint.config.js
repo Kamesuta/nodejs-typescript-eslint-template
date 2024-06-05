@@ -4,7 +4,6 @@
 /* eslint-disable jsdoc/require-jsdoc */
 /* eslint-disable @typescript-eslint/naming-convention */
 
-import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import jsdoc from 'eslint-plugin-jsdoc';
 import eslint from '@eslint/js';
@@ -13,30 +12,22 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 export default [
     // Plugins
     eslint.configs.recommended,
-    tseslint.configs.eslintRecommended,
     ...tseslint.configs.recommendedTypeChecked,
-    jsdoc.configs['flat/recommended'],
+    jsdoc.configs['flat/recommended-typescript'],
     eslintConfigPrettier,
     // /Plugins
     {
         languageOptions: {
-            globals: {
-                ...globals.es2021,
-                ...globals.node,
-            },
             parser: tseslint.parser,
             parserOptions: {
+                project: true,
                 sourceType: 'module',
-                project: ['tsconfig.json'],
             },
-        },
-        plugins: {
-            '@typescript-eslint/eslint-plugin': tseslint.plugin,
-            'eslint-plugin-jsdoc': jsdoc,
         },
         rules: {
             'unicode-bom': ['error', 'never'],
             '@typescript-eslint/explicit-function-return-type': 'warn',
+            '@typescript-eslint/explicit-module-boundary-types': 'error',
             'no-var': 'off',
             'no-restricted-syntax': [
                 'error',
@@ -81,6 +72,10 @@ export default [
                 {
                     selector: 'typeLike',
                     format: ['PascalCase'],
+                },
+                {
+                    selector: 'import',
+                    format: ['camelCase', 'PascalCase'],
                 },
                 {
                     selector: [
