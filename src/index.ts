@@ -1,6 +1,6 @@
-import { logger } from './log.js';
-import { config } from './config.js';
-import { sleep } from './utils.js';
+import { logger } from './utils/log.js';
+import { config } from './utils/config.js';
+import { sleep } from './utils/utils.js';
 
 /**
  * Main process
