@@ -12,10 +12,13 @@
     "lint": "tsc --noEmit && eslint --cache --fix",
     "prettier": "prettier --write",
     "lint-staged": "lint-staged",
-    "prepare": "husky"
+    "prepare": "if-env NODE_ENV=production && echo 'Skipping husky in production' || husky"
   },
   "author": "Kamesuta",
   "license": "MIT",
+  "engines": {
+    "node": "22.x"
+  },
   "devDependencies": {
     "@eslint/js": "^9.4.0",
     "@types/node": "^20.13.0",
@@ -28,12 +31,13 @@
     "prettier": "^3.2.5",
     "rimraf": "^5.0.7",
     "tsconfig-paths": "^4.2.0",
-    "tsx": "^4.11.0",
     "typescript": "^5.4.5",
     "typescript-eslint": "^8.0.0-alpha.13"
   },
   "dependencies": {
+    "if-env": "^1.0.4",
     "log4js": "^6.9.1",
-    "toml": "^3.0.0"
+    "toml": "^3.0.0",
+    "tsx": "^4.11.0"
   }
 }
